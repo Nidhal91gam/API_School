@@ -21,91 +21,92 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 
-@Entity(name = "SCHOLARSESSION_ENTITY")
+@Entity(name = "SCHOLAR_SESSION_ENTITY")
 public class ScholarSessionEntity implements Serializable {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+    /**
+     *
+     */
+    private static final long serialVersionUID = 1L;
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
 
-	@Column(unique = true, nullable = false)
-	private String name;
+    @Column(nullable = false)
+    private String name;
 
-	private int year;
+    @Column(nullable = false)
+    private int year;
 
-	@Temporal(TemporalType.DATE)
-	private Date startDate;
+    @Temporal(TemporalType.DATE)
+    private Date startDate;
 
-	@Temporal(TemporalType.DATE)
-	private Date endDate;
-	
-	@ManyToOne
-	private SchoolEntity schoolEntity;
-	
-	@OneToMany(mappedBy = "scholarSessionEntity")
-	List<ClassroomEntity> classroomEntities= new ArrayList<>();
+    @Temporal(TemporalType.DATE)
+    private Date endDate;
 
-	public ScholarSessionEntity() {
-	}
+    @ManyToOne
+    private SchoolEntity schoolEntity;
 
-	public Long getId() {
-		return id;
-	}
+    @OneToMany(mappedBy = "scholarSessionEntity")
+    List<ClassroomEntity> classroomEntities = new ArrayList<>();
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    public ScholarSessionEntity() {
+    }
 
-	public String getName() {
-		return name;
-	}
+    public Long getId() {
+        return id;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-	public int getYear() {
-		return year;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public void setYear(int year) {
-		this.year = year;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	public Date getStartDate() {
-		return startDate;
-	}
+    public int getYear() {
+        return year;
+    }
 
-	public void setStartDate(Date startDate) {
-		this.startDate = startDate;
-	}
+    public void setYear(int year) {
+        this.year = year;
+    }
 
-	public Date getEndDate() {
-		return endDate;
-	}
+    public Date getStartDate() {
+        return startDate;
+    }
 
-	public void setEndDate(Date endDate) {
-		this.endDate = endDate;
-	}
+    public void setStartDate(Date startDate) {
+        this.startDate = startDate;
+    }
 
-	public SchoolEntity getSchoolEntity() {
-		return schoolEntity;
-	}
+    public Date getEndDate() {
+        return endDate;
+    }
 
-	public void setSchoolEntity(SchoolEntity schoolEntity) {
-		this.schoolEntity = schoolEntity;
-	}
+    public void setEndDate(Date endDate) {
+        this.endDate = endDate;
+    }
 
-	public List<ClassroomEntity> getClassroomEntities() {
-		return classroomEntities;
-	}
+    public SchoolEntity getSchoolEntity() {
+        return schoolEntity;
+    }
 
-	public void setClassroomEntities(List<ClassroomEntity> classroomEntities) {
-		this.classroomEntities = classroomEntities;
-	}
+    public void setSchoolEntity(SchoolEntity schoolEntity) {
+        this.schoolEntity = schoolEntity;
+    }
+
+    public List<ClassroomEntity> getClassroomEntities() {
+        return classroomEntities;
+    }
+
+    public void setClassroomEntities(List<ClassroomEntity> classroomEntities) {
+        this.classroomEntities = classroomEntities;
+    }
 }

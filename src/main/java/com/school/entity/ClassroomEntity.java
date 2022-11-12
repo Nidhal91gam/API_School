@@ -26,102 +26,102 @@ import lombok.NoArgsConstructor;
 @Entity(name = "CLASSROOM_ENTITY")
 public class ClassroomEntity implements Serializable {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+    /**
+     *
+     */
+    private static final long serialVersionUID = 1L;
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
 
-	@Column(unique = true, nullable = false)
-	private String name;
+    @Column(unique = true, nullable = false)
+    private String name;
 
-	@Transient
-	private Long numberStudent;
+    @Transient
+    private Long numberStudent;
 
-	@ManyToOne
-	private SchoolEntity schoolEntity;
+    @ManyToOne
+    private SchoolEntity schoolEntity;
 
-	@ManyToMany(fetch = FetchType.LAZY)
-	@JoinTable(   name = "classroom_field",joinColumns = @JoinColumn(name = "classroom_id"),inverseJoinColumns = @JoinColumn(name = "field_id"))
-	List<FieldEntity> fieldEntities = new ArrayList<>();
-	
-	@OneToMany(mappedBy = "classroomEntity")
-	List<StudentEntity>studentEntities=new ArrayList<>();
-	
-	@ManyToMany(fetch = FetchType.LAZY)
-	@JoinTable(   name = "classroom_teacher",joinColumns = @JoinColumn(name = "classroom_id"),inverseJoinColumns = @JoinColumn(name = "teacher_id"))
-	List<TeacherEntity> teacherEntities = new ArrayList<>();
-	
-	@ManyToOne
-	private ScholarSessionEntity scholarSessionEntity;
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(name = "classroom_field", joinColumns = @JoinColumn(name = "classroom_id"), inverseJoinColumns = @JoinColumn(name = "field_id"))
+    List<FieldEntity> fieldEntities = new ArrayList<>();
 
-	public ClassroomEntity() {
-	}
+    @OneToMany(mappedBy = "classroomEntity")
+    List<StudentEntity> studentEntities = new ArrayList<>();
 
-	public Long getId() {
-		return id;
-	}
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(name = "classroom_teacher", joinColumns = @JoinColumn(name = "classroom_id"), inverseJoinColumns = @JoinColumn(name = "teacher_id"))
+    List<TeacherEntity> teacherEntities = new ArrayList<>();
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    @ManyToOne
+    private ScholarSessionEntity scholarSessionEntity;
 
-	public String getName() {
-		return name;
-	}
+    public ClassroomEntity() {
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public Long getId() {
+        return id;
+    }
 
-	public Long getNumberStudent() {
-		return numberStudent;
-	}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-	public void setNumberStudent(Long numberStudent) {
-		this.numberStudent = numberStudent;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public SchoolEntity getSchoolEntity() {
-		return schoolEntity;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	public void setSchoolEntity(SchoolEntity schoolEntity) {
-		this.schoolEntity = schoolEntity;
-	}
+    public Long getNumberStudent() {
+        return numberStudent;
+    }
 
-	public List<FieldEntity> getFieldEntities() {
-		return fieldEntities;
-	}
+    public void setNumberStudent(Long numberStudent) {
+        this.numberStudent = numberStudent;
+    }
 
-	public void setFieldEntities(List<FieldEntity> fieldEntities) {
-		this.fieldEntities = fieldEntities;
-	}
+    public SchoolEntity getSchoolEntity() {
+        return schoolEntity;
+    }
 
-	public List<StudentEntity> getStudentEntities() {
-		return studentEntities;
-	}
+    public void setSchoolEntity(SchoolEntity schoolEntity) {
+        this.schoolEntity = schoolEntity;
+    }
 
-	public void setStudentEntities(List<StudentEntity> studentEntities) {
-		this.studentEntities = studentEntities;
-	}
+    public List<FieldEntity> getFieldEntities() {
+        return fieldEntities;
+    }
 
-	public List<TeacherEntity> getTeacherEntities() {
-		return teacherEntities;
-	}
+    public void setFieldEntities(List<FieldEntity> fieldEntities) {
+        this.fieldEntities = fieldEntities;
+    }
 
-	public void setTeacherEntities(List<TeacherEntity> teacherEntities) {
-		this.teacherEntities = teacherEntities;
-	}
+    public List<StudentEntity> getStudentEntities() {
+        return studentEntities;
+    }
 
-	public ScholarSessionEntity getScholarSessionEntity() {
-		return scholarSessionEntity;
-	}
+    public void setStudentEntities(List<StudentEntity> studentEntities) {
+        this.studentEntities = studentEntities;
+    }
 
-	public void setScholarSessionEntity(ScholarSessionEntity scholarSessionEntity) {
-		this.scholarSessionEntity = scholarSessionEntity;
-	}
+    public List<TeacherEntity> getTeacherEntities() {
+        return teacherEntities;
+    }
+
+    public void setTeacherEntities(List<TeacherEntity> teacherEntities) {
+        this.teacherEntities = teacherEntities;
+    }
+
+    public ScholarSessionEntity getScholarSessionEntity() {
+        return scholarSessionEntity;
+    }
+
+    public void setScholarSessionEntity(ScholarSessionEntity scholarSessionEntity) {
+        this.scholarSessionEntity = scholarSessionEntity;
+    }
 }

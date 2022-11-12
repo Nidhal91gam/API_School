@@ -26,6 +26,4 @@ public class ExceptionHandling {
         return new ResponseEntity<>(message, HttpStatus.BAD_REQUEST);
     }
 
-
-
 }

@@ -1,6 +1,6 @@
 package com.school.mapper;
 
-import com.school.dto.AdministrationDTO;
+import com.school.dto.AdministrationDto;
 import com.school.entity.AdministrationEntity;
 import com.school.request.AdministrationRequest;
 import com.school.response.AdministrationResponse;
@@ -12,10 +12,10 @@ import org.mapstruct.factory.Mappers;
 public interface AdministrationMapper
 {
     AdministrationMapper INSTANCE = Mappers.getMapper(AdministrationMapper.class);
-    AdministrationDTO administrationRequestToAdministrationDto (AdministrationRequest administrationRequest);
+    AdministrationDto administrationRequestToAdministrationDto (AdministrationRequest administrationRequest);
 
-    AdministrationResponse administrationDtoToAdministrationResponse(AdministrationDTO administrationDTO);
+    AdministrationResponse administrationDtoToAdministrationResponse(AdministrationDto administrationDTO);
 
    @Mapping(source = "schoolEntity.id",target ="schoolId")
-    AdministrationDTO administrationEntityToAdministrationDTO(AdministrationEntity administrationEntity);
+   AdministrationDto administrationEntityToAdministrationDTO(AdministrationEntity administrationEntity);
 }

@@ -1,8 +1,8 @@
-package com.school.dto;
+package com.school.response;
 
-import java.util.Date;
+import java.util.List;
 
-public class AdministrationDTO {
+public class TeacherResponse {
 
     private Long id;
 
@@ -24,9 +24,13 @@ public class AdministrationDTO {
 
     private int yearExperience;
 
-    private String functionality;
-
     private Long schoolId;
+
+    private List<Long> classroomIds;
+
+    public TeacherResponse(Long id) {
+        this.id = id;
+    }
 
     public Long getId() {
         return id;
@@ -108,19 +112,19 @@ public class AdministrationDTO {
         this.yearExperience = yearExperience;
     }
 
-    public String getFunctionality() {
-        return functionality;
-    }
-
-    public void setFunctionality(String functionality) {
-        this.functionality = functionality;
-    }
-
     public Long getSchoolId() {
         return schoolId;
     }
 
     public void setSchoolId(Long schoolId) {
         this.schoolId = schoolId;
+    }
+
+    public List<Long> getClassroomIds() {
+        return classroomIds;
+    }
+
+    public void setClassroomIds(List<Long> classroomIds) {
+        this.classroomIds = classroomIds;
     }
 }
